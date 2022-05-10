@@ -29,7 +29,7 @@ function User() {
         <strong>Username</strong> {user.username}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>Email-----------</strong> {user.email}
       </li>
     </ul>
   );
