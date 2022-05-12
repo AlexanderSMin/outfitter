@@ -6,8 +6,8 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    photo_url = db.Column(db.String)
     caption = db.Column(db.String(255), nullable=False)
+    photo_url = db.Column(db.String)
 
     def to_dict(self):
         user = User.query.get(self.user_id)
