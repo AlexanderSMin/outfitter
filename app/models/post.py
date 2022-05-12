@@ -24,5 +24,5 @@ class Post(db.Model):
         self.caption = caption
         return caption
 
-    user = db.relationship("User", back_populates="photos")
-    replies = db.relationship("Reply", back_populates="photos", cascade="all, delete")
+    user = db.relationship("User", back_populates="posts")
+    replies = db.relationship("Reply", back_populates="posts", cascade="all, delete")

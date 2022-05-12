@@ -3,12 +3,12 @@ from app.models import db, Reply
 def seed_replies():
     demo = Reply(
         post_id=1,
-        user_id=2,
+        user_id=3,
         body="I love that song too"
     )
     demo2 = Reply(
-        photo_id=1,
-        user_id=2,
+        post_id=1,
+        user_id=3,
         body="heat!"
     )
 

@@ -16,7 +16,7 @@ class Reply(db.Model):
 
         return {
             "id": self.id,
-            "photo_id": self.photo_id,
+            "post_id": self.photo_id,
             "user_id": self.user_id,
             "body": self.body,
             "username": user.username
@@ -27,4 +27,4 @@ class Reply(db.Model):
         return body
 
     user = db.relationship("User", back_populates="replies")
-    photos = db.relationship("Photo", back_populates="replies")
+    posts = db.relationship("Post", back_populates="replies")
