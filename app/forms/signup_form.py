@@ -1,3 +1,4 @@
+from tokenize import String
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
@@ -21,7 +22,13 @@ def username_exists(form, field):
 
 
 class SignUpForm(FlaskForm):
+    first_name = StringField(
+        'first_name', validators=[DataRequired(message='Please provide a first name')]
+    )
+    last_name = StringField(
+        'last_name', validators=[DataRequired(message='Please provide a last name')]
+    )
     username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    password = StringField('password', validators=[DataRequired()])
+        'username', validators=[DataRequired(message='Please provide a username'), username_exists])
+    email = StringField('email', validators=[DataRequired(message='Please provide an email'), Email("Please provide a valid email"),user_exists])
+    password = StringField('password', validators=[DataRequired(message='Please provide a password')])
