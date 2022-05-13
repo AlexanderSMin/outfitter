@@ -1,14 +1,16 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
-from app.models import db, Post, User, reply_form
+from app.models import db, Post, User
 from app.forms import PostForm
 
 post_routes = Blueprint('posts', __name__)
 
-# @post_routes.route('/', methods=['GET'])
-# @login_required
-# def get_posts():
-#     posts =
+@post_routes.route('/', methods=['GET'])
+@login_required
+def get_posts():
+    posts = Post.query.all()
+    response = {'posts' : [post.to_dict() for post in posts]}
+    return jsonify(response)
 
 #Get Specific Post
 @post_routes.route('/<int:id>', methods=['GET'])

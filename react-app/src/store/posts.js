@@ -5,7 +5,7 @@ const DELETE_POST = 'post/DELETE_POST';
 
 const getPosts = (posts) => ({
     type: GET_POSTS,
-    payload: posts
+    posts
 })
 
 const createPost = (post) => ({
@@ -31,7 +31,7 @@ export const grabPosts = () => async (dispatch) => {
     }
 }
 
-export const addPost = () => async (dispatch) => {
+export const addPost = (post) => async (dispatch) => {
     const response = await fetch('api/posts/new', {
         method: 'POST',
         headers: {
@@ -68,23 +68,19 @@ export const removePost = (id) => async (dispatch) => {
     }
 }
 
-const initialState = {
-    posts: [],
-    post: {}
-};
+const initialState = {};
 
 export default function PostReducer(state = initialState, action) {
+    let newState
     switch (action.type) {
         case GET_POSTS:
-            return {
-                ...state,
-                posts: action.payload
-            };
+            newState = {}
+            action.posts.posts.forEach(post => { newState[post.id] = post})
+            return newState
         case CREATE_POST:
-            return {
-                ...state,
-                posts: [...state.posts, action.payload]
-            };
+            newState = { ...state }
+            newState[action.post.id] = action.post
+            return newState
         case EDIT_POST:
             return {
                 ...state,
