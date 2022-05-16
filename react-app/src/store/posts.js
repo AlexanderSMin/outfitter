@@ -32,12 +32,16 @@ export const grabPosts = () => async (dispatch) => {
 }
 
 export const addPost = (post) => async (dispatch) => {
+    const {caption, photoUrl} = post
     const response = await fetch('/api/posts/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(post)
+        body: JSON.stringify({
+            caption,
+            photo_url : photoUrl
+        })
     });
     if(response.ok){
         const newPost = await response.json();
