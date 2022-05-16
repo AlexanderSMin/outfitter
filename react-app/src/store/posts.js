@@ -18,9 +18,9 @@ const editPost = (post) => ({
     post
 })
 
-const deletePost = (post) => ({
+const deletePost = (id) => ({
     type: DELETE_POST,
-    post
+    id
 })
 
 export const grabPosts = () => async (dispatch) => {
@@ -86,10 +86,9 @@ export default function PostReducer(state = initialState, action) {
                 newState[action.post.id] = action.post
             return newState
         case DELETE_POST:
-            return {
-                ...state,
-                posts: state.posts.filter(post => post.id !== action.payload)
-            };
+                newState = {...state}
+                delete newState[action.id]
+            return newState
         default:
             return state;
     }

@@ -62,4 +62,4 @@ def delete_post(id):
 
     db.session.delete(post)
     db.session.commit()
-    return jsonify(post.to_dict())
+    return jsonify(post.id)

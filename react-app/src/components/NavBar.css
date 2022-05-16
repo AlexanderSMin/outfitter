@@ -1,0 +1,25 @@
+nav ul {
+  display: flex;
+  background-color: #50b7f5;
+  list-style: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.0975);
+  box-sizing: border-box;
+  justify-content: space-around;
+
+}
+
+
+
+.nav-link{
+  text-decoration: none;
+  font-size: 12pt;
+  width: 80px;
+  height: 40px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: bold;
+}

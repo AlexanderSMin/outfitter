@@ -16,10 +16,11 @@ const PostsFeed = () => {
         <>
             <div>
             {posts.map((post, index) => (
-                <>
-                <h1 key={index}>{post.caption}</h1>
+                <div key={index}>
+                <h1>{post.caption}</h1>
+                <img src={post.photo_url} />
                 <EditPost post={post} />
-                </>
+                </div>
             ))}
             </div>
             <div>
