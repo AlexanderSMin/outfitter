@@ -32,7 +32,7 @@ export const grabPosts = () => async (dispatch) => {
 }
 
 export const addPost = (post) => async (dispatch) => {
-    const response = await fetch('api/posts/new', {
+    const response = await fetch('/api/posts/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

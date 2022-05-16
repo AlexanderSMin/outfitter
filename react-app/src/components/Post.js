@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { grabPosts } from '../store/posts';
 
 import EditPost from "./EditPost";
+import NewOutfitterPost from "./NewOutfitterPost/NewOutFitterPost";
+import DeletePost from "./DeletePost/DeletePost"
 
 const PostsFeed = () => {
     const dispatch = useDispatch();
     const posts = useSelector(state => Object.values(state.posts))
+    const user = useSelector(state => state.session.user)
 
     useEffect(() => {
         dispatch(grabPosts())
@@ -15,11 +18,18 @@ const PostsFeed = () => {
     return (
         <>
             <div>
+            <NewOutfitterPost />
+            </div>
+            <div>
             {posts.map((post, index) => (
                 <div key={index}>
                 <h1>{post.caption}</h1>
+                <div>
+                    {user.username}
+                </div>
                 <img src={post.photo_url} />
                 <EditPost post={post} />
+                <DeletePost post={post}/>
                 </div>
             ))}
             </div>

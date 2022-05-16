@@ -21,7 +21,7 @@ def get_post(id):
     return jsonify(response)
 
 #Create A Post
-@post_routes.route('/post/', methods=['POST'])
+@post_routes.route('/new', methods=['POST'])
 @login_required
 def create_post():
     form = PostForm()
@@ -29,7 +29,6 @@ def create_post():
     if form.validate_on_submit():
         post = Post(
             user_id = current_user.id,
-            userName = current_user.username,
             caption = form.data['caption'],
             photo_url = form.data['photo_url']
         )
