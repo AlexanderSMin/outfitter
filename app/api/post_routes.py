@@ -40,11 +40,12 @@ def create_post():
     return jsonify(form.errors), 403
 
 #Edit A Post
-@post_routes.route('/<int:id>/edit/', methods=['PATCH'])
+@post_routes.route('/<int:id>/', methods=['PATCH'])
 @login_required
 def edit_post(id):
     post = Post.query.get(id)
     form = PostForm()
+    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():

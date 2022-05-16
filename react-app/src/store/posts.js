@@ -10,17 +10,17 @@ const getPosts = (posts) => ({
 
 const createPost = (post) => ({
     type: CREATE_POST,
-    payload: post
+    post
 })
 
 const editPost = (post) => ({
     type: EDIT_POST,
-    payload: post
+    post
 })
 
 const deletePost = (post) => ({
     type: DELETE_POST,
-    payload: post
+    post
 })
 
 export const grabPosts = () => async (dispatch) => {
@@ -45,13 +45,13 @@ export const addPost = (post) => async (dispatch) => {
     }
 }
 
-export const updatePost = (post) => async (dispatch) => {
-    const response = await fetch(`/api/posts/${post.id}/edit/`, {
+export const updatePost = (id, caption) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(post)
+        body: JSON.stringify({caption})
     });
     if (response.ok) {
         const updatedPost = await response.json();
@@ -82,10 +82,9 @@ export default function PostReducer(state = initialState, action) {
             newState[action.post.id] = action.post
             return newState
         case EDIT_POST:
-            return {
-                ...state,
-                posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post)
-            };
+                newState = {...state}
+                newState[action.post.id] = action.post
+            return newState
         case DELETE_POST:
             return {
                 ...state,
