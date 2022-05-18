@@ -64,13 +64,13 @@ const ReplyContainer = ({ reply }) => {
                     <p>
                         @{reply.username}
                     </p>
-                    <p className="user-comment">
-                        {comment.body}
+                    <p>
+                        {reply.body}
                     </p>
                 </div>
                 {user.id === reply.user_id &&
                     <div>
-                        <button onClick={reveal}></button>
+                        <button onClick={reveal}> Reply Options</button>
                         <Popup open={buttons}>
                             {replyButtons}
                         </Popup>

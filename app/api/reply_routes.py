@@ -5,6 +5,13 @@ from app.forms import ReplyForm
 
 reply_routes = Blueprint('replies', __name__)
 
+@reply_routes.route('/', methods=['GET'])
+@login_required
+def get_replies():
+    replies = Reply.query.all()
+    reply = {'replies': [reply.to_dict() for reply in replies]}
+    return jsonify(reply)
+
 #Create A Reply
 @reply_routes.route('/new', methods=['POST'])
 @login_required
@@ -14,6 +21,7 @@ def create_reply():
     if form.validate_on_submit():
         reply = Reply(
             user_id = current_user.id,
+            post_id = form.data['post_id'],
             body = form.data['body']
         )
         db.session.add(reply)

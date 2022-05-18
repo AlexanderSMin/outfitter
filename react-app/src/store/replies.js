@@ -24,14 +24,14 @@ const deleteReply = (id) => ({
 })
 
 export const grabReplies = () => async (dispatch) => {
-    const response = await fetch(`api/posts/${id}`);
+    const response = await fetch(`/api/replies/`);
     if(response.ok){
         const replies = await response.json();
         dispatch(getReplies(replies));
     }
 }
 
-export const addReply = (reply) => async (dispatch) => {
+export const addReply = (id, reply) => async (dispatch) => {
     const { body } = reply
     const response = await fetch('/api/replies/new', {
         method: 'POST',
@@ -39,6 +39,7 @@ export const addReply = (reply) => async (dispatch) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            post_id: id,
             body
         })
     });

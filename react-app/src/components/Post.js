@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { grabPosts } from '../store/posts';
+import { grabReplies } from '../store/replies';
 
 import EditPost from "./EditPost";
 import NewOutfitterPost from "./NewOutfitterPost/NewOutFitterPost";
 import DeletePost from "./DeletePost/DeletePost"
+import RepliesTimeline from "./RepliesTimeline/RepliesTimeline"
 
 const PostsFeed = () => {
     const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const PostsFeed = () => {
 
     useEffect(() => {
         dispatch(grabPosts())
+        dispatch(grabReplies())
     }, [dispatch])
 
     return (
@@ -30,6 +33,7 @@ const PostsFeed = () => {
                 <img src={post.photo_url} />
                 <EditPost post={post} />
                 <DeletePost post={post}/>
+                <RepliesTimeline post={post}/>
                 </div>
             ))}
             </div>

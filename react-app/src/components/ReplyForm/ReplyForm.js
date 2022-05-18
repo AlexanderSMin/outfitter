@@ -4,7 +4,7 @@ import { addReply } from "../../store/replies";
 
 
 
-const NewReply = () => {
+const NewReply = ({ post}) => {
     const dispatch = useDispatch()
 
     const [body, setBody] = useState('')
@@ -17,7 +17,7 @@ const NewReply = () => {
             body
         }
 
-        const response = await dispatch(addReply(newReply))
+        const response = await dispatch(addReply(post.id, newReply))
         if (response?.errors) {
             setErrors(response.errors)
         }
