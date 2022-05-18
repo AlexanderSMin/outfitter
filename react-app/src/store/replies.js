@@ -24,72 +24,72 @@ const deleteReply = (id) => ({
 })
 
 export const grabReplies = () => async (dispatch) => {
-    const response = await fetch('api/replies/');
+    const response = await fetch(`/api/replies/`);
     if(response.ok){
         const replies = await response.json();
         dispatch(getReplies(replies));
     }
 }
 
-export const addPost = (post) => async (dispatch) => {
-    const {caption, photoUrl} = post
-    const response = await fetch('/api/posts/new', {
+export const addReply = (id, reply) => async (dispatch) => {
+    const { body } = reply
+    const response = await fetch('/api/replies/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            caption,
-            photo_url : photoUrl
+            post_id: id,
+            body
         })
     });
     if(response.ok){
-        const newPost = await response.json();
-        dispatch(createPost(newPost))
+        const newReply = await response.json();
+        dispatch(createReply(newReply))
     }
 }
 
-export const updatePost = (id, caption) => async (dispatch) => {
-    const response = await fetch(`/api/posts/${id}/`, {
+export const updateReply = (id, body) => async (dispatch) => {
+    const response = await fetch(`/api/replies/${id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({caption})
+        body: JSON.stringify({ body })
     });
     if (response.ok) {
-        const updatedPost = await response.json();
-        dispatch(editPost(updatedPost));
+        const updatedReply = await response.json();
+        dispatch(editReply(updatedReply));
     }
 }
 
-export const removePost = (id) => async (dispatch) => {
-    const response = await fetch(`api/posts/${id}/delete/`, {
+export const removeReply = (id) => async (dispatch) => {
+    const response = await fetch(`api/replies/${id}/delete/`, {
       method: "DELETE"
     });
     if (response.ok) {
-      dispatch(deletePost(id));
+      dispatch(deleteReply(id));
     }
 }
 
 const initialState = {};
 
-export default function PostReducer(state = initialState, action) {
+export default function ReplyReducer(state = initialState, action) {
     let newState
     switch (action.type) {
-        case GET_POSTS:
+        case GET_REPLIES:
             newState = {}
-            action.posts.posts.forEach(post => { newState[post.id] = post})
+            action.replies.replies.forEach(reply => { newState[reply.id] = reply })
             return newState
-        case CREATE_POST:
+        case CREATE_REPLY:
             newState = { ...state }
-            newState[action.post.id] = action.post
+            newState[action.reply.id] = action.reply
             return newState
-        case EDIT_POST:
+        case EDIT_REPLY:
                 newState = {...state}
-                newState[action.post.id] = action.post
+                newState[action.reply.id] = action.reply
             return newState
-        case DELETE_POST:
+        case DELETE_REPLY:
                 newState = {...state}
                 delete newState[action.id]
             return newState

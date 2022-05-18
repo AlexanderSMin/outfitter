@@ -16,7 +16,7 @@ class Reply(db.Model):
 
         return {
             "id": self.id,
-            "post_id": self.photo_id,
+            "post_id": self.post_id,
             "user_id": self.user_id,
             "body": self.body,
             "username": user.username
