@@ -28,7 +28,8 @@ def create_reply():
         db.session.commit()
         return reply.to_dict()
 
-    return jsonify(form.errors), 403
+    if form.errors:
+        return jsonify(form.errors), 403
 
 #Edit A Reply
 @reply_routes.route('/<int:id>/', methods=['PATCH'])
