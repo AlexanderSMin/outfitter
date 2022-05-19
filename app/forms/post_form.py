@@ -6,4 +6,4 @@ from wtforms.validators import DataRequired, URL
 
 class PostForm(FlaskForm):
     caption = StringField("Caption", validators=[DataRequired(message='Please provide a caption')])
-    photo_url = StringField("Photo Url")
+    photo_url = StringField("Photo Url", validators=[DataRequired(message='Please provide a photo url'), URL(message='This must be a valid URL')])

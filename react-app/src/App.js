@@ -42,7 +42,8 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>My Outfitter Timeline</h1>
+          <PostsFeed/>
         </ProtectedRoute>
         <Route path='/posts' exact={true}>
           <PostsFeed/>
