@@ -46,6 +46,9 @@ export const addReply = (id, reply) => async (dispatch) => {
     if(response.ok){
         const newReply = await response.json();
         dispatch(createReply(newReply))
+    }else{
+        const errors = await response.json();
+        return errors;
     }
 }
 
@@ -59,10 +62,12 @@ export const updateReply = (editedReply) => async (dispatch) => {
         body: JSON.stringify( {'body' : editedReply.reply })
     });
     if (response.ok) {
-        console.log(response)
         const updatedReply = await response.json();
         dispatch(editReply(updatedReply));
         return updatedReply
+    }else{
+        const errors = await response.json();
+        return errors;
     }
 }
 

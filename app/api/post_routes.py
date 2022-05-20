@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from app.models import db, Post, User
 from app.forms import PostForm
+from app.api.auth_routes import validation_errors_to_error_messages;
 
 post_routes = Blueprint('posts', __name__)
 
@@ -36,7 +37,7 @@ def create_post():
         db.session.commit()
         return post.to_dict()
 
-    return jsonify(form.errors), 403
+    return {'errors' :validation_errors_to_error_messages(form.errors)}, 403
 
 #Edit A Post
 @post_routes.route('/<int:id>/', methods=['PATCH'])
@@ -44,14 +45,13 @@ def create_post():
 def edit_post(id):
     post = Post.query.get(id)
     form = PostForm()
-    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         post.caption = form.data['caption']
         db.session.commit()
         return post.to_dict()
-    return jsonify(form.errors), 400
+
+    return {'errors' :validation_errors_to_error_messages(form.errors)}, 403
 
 #Delete A Post
 @post_routes.route('/<int:id>/delete/', methods=['DELETE'])

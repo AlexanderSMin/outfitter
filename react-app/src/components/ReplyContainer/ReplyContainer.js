@@ -1,85 +1,81 @@
 import { React, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Popup from 'reactjs-popup'
+import Popup from "reactjs-popup";
 
-import { updateReply, removeReply } from '../../store/replies'
-
+import { updateReply, removeReply } from "../../store/replies";
 
 const ReplyContainer = ({ reply }) => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    const user = useSelector(state => state.session.user)
+  const user = useSelector((state) => state.session.user);
 
-    const [newReply, setReply] = useState(reply.body)
-    const [buttons, setButtons] = useState(false)
-    const [errors, setErrors] = useState([])
+  const [newReply, setReply] = useState(reply.body);
+  const [buttons, setButtons] = useState(false);
+  const [errors, setErrors] = useState([]);
 
-    const handleEdit = async (e) => {
-        e.preventDefault();
+  const handleEdit = async (e) => {
+    e.preventDefault();
 
-        const editedReply = {
-            id: reply.id,
-            reply: newReply
-        }
+    const editedReply = {
+      id: reply.id,
+      reply: newReply,
+    };
 
-        let updated = await dispatch(updateReply(editedReply))
-        console.log(updated)
-        if (updated.errors) {
-            setErrors(updated.errors)
-        }
+    let updated = await dispatch(updateReply(editedReply));
+    if (updated.errors) {
+      setErrors(updated.errors);
+    }else{
+        setButtons(false);
     }
+  };
 
-    const handleDelete = (e) => {
-        e.preventDefault();
-        dispatch(removeReply(reply.id))
-    }
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(removeReply(reply.id));
+    setButtons(false);
+  };
 
-    const reveal = (e) => {
-        buttons ? setButtons(false) : setButtons(true)
-    }
+  const reveal = (e) => {
+    buttons ? setButtons(false) : setButtons(true);
+  };
 
-    let replyButtons = (
+  let replyButtons = (
+    <div>
+      <form>
         <div>
-            <ul>
-                {errors?.map((error, idx) =>
-                    <li key={idx}>{error}</li>
-                )}
-            </ul>
-            <form>
-                <input
-                    type="text"
-                    value={newReply}
-                    onChange={(e) => setReply(e.target.value)}
-                >
-                </input>
-                <button type="submit" onClick={handleEdit}>Edit</button>
-            </form>
-            <button onClick={handleDelete}>Delete</button>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
         </div>
-    )
+        <input
+          type="text"
+          value={newReply}
+          onChange={(e) => setReply(e.target.value)}
+        ></input>
+        <button type="submit" onClick={handleEdit}>
+          Edit
+        </button>
+      </form>
+      <button onClick={handleDelete}>Delete</button>
+    </div>
+  );
 
-    return (
-        <>
-            <div>
-                <div>
-                    <p>
-                        @{reply.username}
-                    </p>
-                    <p>
-                        {reply.body}
-                    </p>
-                </div>
-                {user.id === reply.user_id &&
-                    <div>
-                        <button onClick={reveal}> Reply Options</button>
-                        <Popup open={buttons}>
-                            {replyButtons}
-                        </Popup>
-                    </div>
-                }
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <div>
+        <div>
+          <p>@{reply.username}</p>
+          <p>{reply.body}</p>
+        </div>
+        {user.id === reply.user_id && (
+          <div>
+            <button onClick={reveal}> Reply Options</button>
+            <Popup open={buttons}>{replyButtons}</Popup>
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
 
-export default ReplyContainer
+export default ReplyContainer;

@@ -31,8 +31,8 @@ const PostsFeed = () => {
                     {user.username}
                 </div>
                 <img src={post.photo_url} />
-                <EditPost post={post} />
-                <DeletePost post={post}/>
+                {user.id === post.user_id && <EditPost post={post} />}
+                {user.id === post.user_id && <DeletePost post={post}/>}
                 <RepliesTimeline post={post}/>
                 </div>
             ))}

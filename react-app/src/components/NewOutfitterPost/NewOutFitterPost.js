@@ -27,6 +27,11 @@ const NewOutfitterPost = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
+            <div>
                 <input
                     placeholder='New Outfitter Post'
                     onChange={(e) => setCaption(e.target.value)}

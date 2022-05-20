@@ -4,7 +4,7 @@ import { addReply } from "../../store/replies";
 
 
 
-const NewReply = ({ post}) => {
+const NewReply = ({ post }) => {
     const dispatch = useDispatch()
 
     const [body, setBody] = useState('')
@@ -21,21 +21,26 @@ const NewReply = ({ post}) => {
         if (response?.errors) {
             setErrors(response.errors)
         }
-        }
-        return (
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        placeholder='Reply'
-                        onChange={(e) => setBody(e.target.value)}
-                        value={body}
-                    ></input>
-                </div>
-                <div>
-                    <button type='submit'>Submit</button>
-                </div>
-            </form>
-        )
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
+            <div>
+                <input
+                    placeholder='Reply'
+                    onChange={(e) => setBody(e.target.value)}
+                    value={body}
+                ></input>
+            </div>
+            <div>
+                <button type='submit'>Submit</button>
+            </div>
+        </form>
+    )
 }
 
-    export default NewReply
+export default NewReply

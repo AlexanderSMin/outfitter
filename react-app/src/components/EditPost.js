@@ -7,12 +7,14 @@ const EditPost = ({ post }) => {
 
   const [caption, setCaption] = useState(post.caption);
   const [isEditClicked, setIsEditClicked] = useState(false);
-
+  const [errors, setErrors] = useState([])
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await dispatch(updatePost(post.id, caption));
-
+    const data = await dispatch(updatePost(post.id, caption));
+    if (data && data.errors) {
+      setErrors(data.errors)
+    }
     setIsEditClicked(false);
   };
 
@@ -22,18 +24,23 @@ const EditPost = ({ post }) => {
 
   let editForm = (
     <form onSubmit={handleSubmit}>
-    <input
-      type="text"
-      value={caption}
-      onChange={e => setCaption(e.target.value)}
-    />
-    <button type="submit">Submit</button>
-  </form>
+      <input
+        type="text"
+        value={caption}
+        onChange={e => setCaption(e.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form>
   )
 
   return (
     <div>
-        <button onClick={() => setIsEditClicked(true)}>Edit</button>
+      <div>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
+      <button onClick={() => setIsEditClicked(true)}>Edit</button>
       {isEditClicked && editForm}
     </div>
   );
