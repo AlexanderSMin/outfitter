@@ -46,6 +46,9 @@ export const addPost = (post) => async (dispatch) => {
     if(response.ok){
         const newPost = await response.json();
         dispatch(createPost(newPost))
+    }else{
+        const errors = await response.json();
+        return errors;
     }
 }
 
@@ -60,6 +63,9 @@ export const updatePost = (id, caption) => async (dispatch) => {
     if (response.ok) {
         const updatedPost = await response.json();
         dispatch(editPost(updatedPost));
+    }else{
+        const errors = await response.json();
+        return errors;
     }
 }
 

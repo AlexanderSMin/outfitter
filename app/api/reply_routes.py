@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from app.models import db, Post, Reply
 from app.forms import ReplyForm
+from app.api.auth_routes import validation_errors_to_error_messages;
 
 reply_routes = Blueprint('replies', __name__)
 
@@ -28,26 +29,23 @@ def create_reply():
         db.session.commit()
         return reply.to_dict()
 
-    if form.errors:
-        return jsonify(form.errors), 403
+    return {'errors' : validation_errors_to_error_messages(form.errors)}, 403
+
 
 #Edit A Reply
 @reply_routes.route('/<int:id>/', methods=['PATCH'])
 @login_required
 def edit_reply(id):
     reply = Reply.query.get(id)
-    print('grabbed Reply object----------------------')
     form = ReplyForm()
-    print('Got reply form ----------------------------')
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print("VAlidation success")
         reply.body = form.data['body']
-        print("Assignment success")
         db.session.commit()
         return reply.to_dict()
-    return jsonify(form.errors), 400
+
+    return {'errors' : validation_errors_to_error_messages(form.errors)}, 403
 
 #Delete A Post
 @reply_routes.route('/<int:id>/delete/', methods=['DELETE'])

@@ -22,30 +22,36 @@ const NewOutfitterPost = () => {
         const response = await dispatch(addPost(newPost))
         if (response?.errors) {
             setErrors(response.errors)
-            console.log(response.errors)
+        }else{
+            setCaption("")
         }
-        }
-        return (
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        placeholder='New Outfitter Post'
-                        onChange={(e) => setCaption(e.target.value)}
-                        value={caption}
-                    ></input>
-                </div>
-                {/* <div>
+    }
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
+            <div>
+                <input
+                    placeholder='New Outfitter Post'
+                    onChange={(e) => setCaption(e.target.value)}
+                    value={caption}
+                ></input>
+            </div>
+            {/* <div>
                     <input
                         placeholder='Photo Link'
                         onChange={(e) => setPhotoUrl(e.target.value)}
                         value={photoUrl}
                     ></input>
                 </div> */}
-                <div>
-                    <button type='submit'>Submit</button>
-                </div>
-            </form>
-        )
+            <div>
+                <button type='submit'>Submit</button>
+            </div>
+        </form>
+    )
 }
 
-    export default NewOutfitterPost
+export default NewOutfitterPost
