@@ -34,13 +34,13 @@ const NewOutfitterPost = () => {
                         value={caption}
                     ></input>
                 </div>
-                <div>
+                {/* <div>
                     <input
                         placeholder='Photo Link'
                         onChange={(e) => setPhotoUrl(e.target.value)}
                         value={photoUrl}
                     ></input>
-                </div>
+                </div> */}
                 <div>
                     <button type='submit'>Submit</button>
                 </div>
