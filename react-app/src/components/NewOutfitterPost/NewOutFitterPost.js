@@ -22,6 +22,8 @@ const NewOutfitterPost = () => {
         const response = await dispatch(addPost(newPost))
         if (response?.errors) {
             setErrors(response.errors)
+        }else{
+            setCaption("")
         }
     }
     return (

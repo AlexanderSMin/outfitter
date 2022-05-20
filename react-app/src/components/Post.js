@@ -28,7 +28,7 @@ const PostsFeed = () => {
                 <div key={index}>
                 <h1>{post.caption}</h1>
                 <div>
-                    {user.username}
+                    {post.username}
                 </div>
                 <img src={post.photo_url} />
                 {user.id === post.user_id && <EditPost post={post} />}

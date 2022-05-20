@@ -20,6 +20,8 @@ const NewReply = ({ post }) => {
         const response = await dispatch(addReply(post.id, newReply))
         if (response?.errors) {
             setErrors(response.errors)
+        }else{
+            setBody("")
         }
     }
     return (

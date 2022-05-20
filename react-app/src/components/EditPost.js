@@ -14,6 +14,8 @@ const EditPost = ({ post }) => {
     const data = await dispatch(updatePost(post.id, caption));
     if (data && data.errors) {
       setErrors(data.errors)
+    }else{
+      setCaption("")
     }
     setIsEditClicked(false);
   };
