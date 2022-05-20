@@ -4,5 +4,5 @@ from wtforms import TextAreaField, IntegerField
 from wtforms.validators import DataRequired
 
 class ReplyForm(FlaskForm):
-    post_id = IntegerField('Post')
-    body = TextAreaField('Reply', validators=[DataRequired(message='Please provide a reply')])
+    post_id = IntegerField('post_id')
+    body = TextAreaField('body', validators=[DataRequired(message='Please provide a reply')])

@@ -36,11 +36,15 @@ def create_reply():
 @login_required
 def edit_reply(id):
     reply = Reply.query.get(id)
+    print('grabbed Reply object----------------------')
     form = ReplyForm()
+    print('Got reply form ----------------------------')
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        reply.body = form.data['caption']
+        print("VAlidation success")
+        reply.body = form.data['body']
+        print("Assignment success")
         db.session.commit()
         return reply.to_dict()
     return jsonify(form.errors), 400
