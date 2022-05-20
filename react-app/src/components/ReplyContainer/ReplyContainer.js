@@ -23,6 +23,7 @@ const ReplyContainer = ({ reply }) => {
         }
 
         let updated = await dispatch(updateReply(editedReply))
+        console.log(updated)
         if (updated.errors) {
             setErrors(updated.errors)
         }

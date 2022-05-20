@@ -49,17 +49,20 @@ export const addReply = (id, reply) => async (dispatch) => {
     }
 }
 
-export const updateReply = (id, body) => async (dispatch) => {
-    const response = await fetch(`/api/replies/${id}/`, {
+export const updateReply = (editedReply) => async (dispatch) => {
+    console.log(editedReply.reply)
+    const response = await fetch(`/api/replies/${editedReply.id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ body })
+        body: JSON.stringify( {'body' : editedReply.reply })
     });
     if (response.ok) {
+        console.log(response)
         const updatedReply = await response.json();
         dispatch(editReply(updatedReply));
+        return updatedReply
     }
 }
 
@@ -86,6 +89,7 @@ export default function ReplyReducer(state = initialState, action) {
             newState[action.reply.id] = action.reply
             return newState
         case EDIT_REPLY:
+                console.log(action.reply)
                 newState = {...state}
                 newState[action.reply.id] = action.reply
             return newState
