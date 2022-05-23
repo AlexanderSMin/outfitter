@@ -4,7 +4,7 @@ from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, ValidationError
 
 
-def valid_post(field):
+def valid_post(form, field):
     caption = field.data
     if len(caption) > 255:
         raise ValidationError('Post character limit exceeded')
