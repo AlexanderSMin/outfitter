@@ -36,9 +36,13 @@ https://outfitteralex.herokuapp.com/
 ## Features
 ### Posts
 Users can post to their Outfitter timeline for others to see
+![Screen Shot 2022-05-23 at 2 06 18 AM](https://user-images.githubusercontent.com/92739573/169784767-31942f33-1f3e-439e-b133-6db0469e1d80.png)
+
 
 ### Replies
 Users can reply to posts on their Outfitter timeline
+![Screen Shot 2022-05-23 at 2 07 17 AM](https://user-images.githubusercontent.com/92739573/169784927-890d1d2b-d599-4b84-a6e7-8380e0f624c1.png)
+
 
 ## Link to Wiki Docs
 https://github.com/AlexanderSMin/outfitter/wiki
