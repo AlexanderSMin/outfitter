@@ -1,0 +1,21 @@
+.post-form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-textarea{
+    font-family: 'Fantasy', copperplate;
+    width: 350px;
+    height: 95px;
+    border-radius: 10px;
+    border-style: double;
+    font-size: 26px;
+    margin-bottom: auto;
+    padding: 15px;
+    border-color: #50b7f5;
+    border-width: 10px;
+    color: #50b7f5;
+}

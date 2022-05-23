@@ -21,8 +21,9 @@ const PostsFeed = () => {
 
     return (
         <>
-            <div>
-                <NewOutfitterPost />
+            <div className= 'header'>
+                <h1>My Outfitter Timeline</h1>
+                <NewOutfitterPost className="newPost-form" />
             </div>
             <div className='post-timeline'>
                 <ul className="timeline-container">

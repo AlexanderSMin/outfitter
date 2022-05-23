@@ -44,7 +44,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Outfitter Timeline</h1>
           <PostsFeed/>
         </ProtectedRoute>
         <Route path='/splash' exact={true} >
