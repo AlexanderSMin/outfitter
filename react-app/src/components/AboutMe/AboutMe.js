@@ -1,9 +1,12 @@
+import './AboutMe.css'
+
 export default function About() {
+
     return (
-      <div>
+      <div className='about-div'>
         <ul>
-          <li><a href="https://github.com/AlexanderSMin">Github: Alexander Min</a></li>
-          <li><a href="https://www.linkedin.com/in/alexander-min-026038160/">LinkedIn</a></li>
+          <li id='about-me'><a href="https://github.com/AlexanderSMin">Github: Alexander Min</a></li>
+          <li  id='about-me'><a href="https://www.linkedin.com/in/alexander-min-026038160/">LinkedIn</a></li>
         </ul>
 
       </div>

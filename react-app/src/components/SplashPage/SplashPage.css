@@ -12,7 +12,7 @@
   width: 200px;
   /* margin: auto; */
   margin-bottom: 10px;
-  margin-right: 100px;
+  margin-right: 150px;
   right: 30px;
   font-family: "Fantasy", copperplate;
   font-size: 70px;
@@ -24,9 +24,9 @@
 }
 
 .splash-bio {
-  font-size: 30px;
+  font-size: 33px;
   margin-top: 25px;
-  margin-right: 150px;
+  margin-right: 230px;
   width: 250px;
   font-family: "Playfair Display", serif;
   font-style: italic;
@@ -43,6 +43,11 @@
   margin-bottom: 70px;
   font-weight: bold;
   font-family: "Fantasy", copperplate;
+  color: grey;
+}
+
+.splash-signup-button{
+  color: #3897f0;
 }
 
 .splash-login{

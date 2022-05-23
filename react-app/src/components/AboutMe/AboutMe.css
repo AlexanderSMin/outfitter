@@ -1,0 +1,23 @@
+#about-me{
+    font-family: "Fantasy", copperplate;
+    color: #50b7f5;
+}
+
+.about-div ul{
+    display: flex;
+    list-style: none;
+    color: #50b7f5;
+}
+.about-div ul li{
+    padding: 20px;
+    color: #50b7f5;
+}
+
+.about-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: #50b7f5;
+
+}

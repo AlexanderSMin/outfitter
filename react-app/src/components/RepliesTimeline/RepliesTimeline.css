@@ -4,3 +4,8 @@
     width: auto;
     max-height: 200px;
 }
+
+.replies-title{
+    font-family: "Fantasy", copperplate;
+    font-size: 21px;
+}
