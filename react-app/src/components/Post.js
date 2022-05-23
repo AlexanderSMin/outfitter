@@ -7,6 +7,7 @@ import EditPost from "./EditPost";
 import NewOutfitterPost from "./NewOutfitterPost/NewOutFitterPost";
 import DeletePost from "./DeletePost/DeletePost"
 import RepliesTimeline from "./RepliesTimeline/RepliesTimeline"
+import "./Post.css"
 
 const PostsFeed = () => {
     const dispatch = useDispatch();
@@ -21,21 +22,28 @@ const PostsFeed = () => {
     return (
         <>
             <div>
-            <NewOutfitterPost />
+                <NewOutfitterPost />
             </div>
-            <div>
-            {posts.map((post, index) => (
-                <div key={index}>
-                <h1>{post.caption}</h1>
-                <div>
-                    {post.username}
-                </div>
-                <img src={post.photo_url} />
-                {user.id === post.user_id && <EditPost post={post} />}
-                {user.id === post.user_id && <DeletePost post={post}/>}
-                <RepliesTimeline post={post}/>
-                </div>
-            ))}
+            <div className='post-timeline'>
+                <ul className="timeline-container">
+                    {posts.map((post, index) => (
+                        <div className='individual-post' key={index}>
+                            <div className='caption'>
+                                {post.caption}
+                            </div>
+                            <div>
+                                {post.username}
+                            </div>
+                            <img src={post.photo_url} />
+                            <div>
+                            {user.id === post.user_id && <EditPost post={post} />}
+                            </div>
+
+                            {user.id === post.user_id && <DeletePost post={post} />}
+                            <RepliesTimeline post={post} />
+                        </div>
+                    ))}
+                </ul>
             </div>
             <div>
 

@@ -1,9 +1,14 @@
 from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, URL
-# from app.models import Photo
+from wtforms.validators import DataRequired, ValidationError
+
+
+def valid_post(form, field):
+    caption = field.data
+    if len(caption) > 255:
+        raise ValidationError('Post character limit exceeded')
 
 class PostForm(FlaskForm):
-    caption = StringField("Caption", validators=[DataRequired(message='Please provide a caption')])
+    caption = StringField("Caption", validators=[DataRequired('Please provide a caption'), valid_post])
     photo_url = StringField("Photo Url")

@@ -1,0 +1,40 @@
+.post-timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .timeline-container{
+
+  }
+
+  .individual-post{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid black
+  }
+
+  .caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fantasy', copperplate;
+    font-size: 40px;
+    /* line-height: 16px; */
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin: 10px 5px;
+    padding: 0 16px 16px 16px;
+    max-width: 468px;
+  }
+
+  .newPost-form{
+    display: flex;
+    flex-direction: column;
+  }
