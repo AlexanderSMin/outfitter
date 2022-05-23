@@ -1,1 +1,17 @@
 /* TODO Add site wide styles */
+*{
+    /* background-color: rgb(228, 228, 228);
+     */
+     background-color:white;
+}
+
+button{
+    background-color: #50b7f5;;
+    border: 1px solid #50b7f5;;
+    padding: 3px 6px;
+    color: black;
+    cursor: pointer;
+    border-radius: 2px;
+    font-weight: bold;
+    font-family: 'Fantasy', copperplate;
+  }

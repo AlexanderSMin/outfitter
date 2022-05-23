@@ -1,50 +1,68 @@
 .post-timeline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* width: auto; */
+}
 
-.header{
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: 27px;
-  font-family: 'Monospace';
+  font-family: "Monospace";
   color: #50b7f5;
   font-weight: bold;
-  text-shadow: -1px 1px 0 rgb(83, 82, 82),
-  1px 1px 0 rgb(83, 82, 82),
- 1px -1px 0 rgb(83, 82, 82),
--1px -1px 0 rgb(83, 82, 82);
+  text-shadow: -1px 1px 0 rgb(83, 82, 82), 1px 1px 0 rgb(83, 82, 82),
+    1px -1px 0 rgb(83, 82, 82), -1px -1px 0 rgb(83, 82, 82);
 }
 
-  .individual-post{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border: 1px solid black
-  }
+.individual-post {
+  /* width: 100%; */
+  overflow: none;
+  /* flex-wrap: wrap; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
 
-  .caption{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Fantasy', copperplate;
-    font-size: 40px;
-    border-color: #eee #ddd #bbb;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-    margin: 10px 5px;
-    padding: 0 16px 16px 16px;
-    max-width: 468px;
-  }
+.caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fantasy", copperplate;
+  font-size: 40px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 10px 5px;
+  padding: 0 16px 16px 16px;
+  max-width: 700px;
+  overflow: scroll;
+}
 
-  .newPost-form{
-    display: flex;
-    flex-direction: column;
-  }
+.newPost-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-username{
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Fantasy", copperplate;
+  font-size: 25px;
+}
+
+.edit-delete{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-posts{
+  background-color: black;
+}

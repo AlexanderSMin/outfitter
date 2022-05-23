@@ -1,0 +1,19 @@
+.reply-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.each-reply{
+    box-shadow: 0 0 2px black;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.reply{
+    width: 95%;
+}

@@ -24,6 +24,7 @@ const NewOutfitterPost = () => {
             setErrors(response.errors)
         } else {
             setCaption("")
+            setErrors([''])
         }
     }
     return (

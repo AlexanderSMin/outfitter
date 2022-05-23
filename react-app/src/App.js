@@ -12,6 +12,8 @@ import PostsFeed from './components/Post'
 import SplashPage from '../src/components/SplashPage/SplashPage';
 import AboutMe from '../src/components/AboutMe/AboutMe';
 
+import "./index.css"
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();

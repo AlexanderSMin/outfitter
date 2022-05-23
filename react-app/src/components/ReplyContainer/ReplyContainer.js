@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 
 import { updateReply, removeReply } from "../../store/replies";
+import './Replies.css'
 
 const ReplyContainer = ({ reply }) => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const ReplyContainer = ({ reply }) => {
   };
 
   let replyButtons = (
-    <div>
+    <div className ='reply-buttons'>
       <form>
         <div>
           {errors.map((error, ind) => (
@@ -62,8 +63,8 @@ const ReplyContainer = ({ reply }) => {
 
   return (
     <>
-      <div>
-        <div>
+      <div className='each-reply'>
+        <div className='reply'>
           <p>@{reply.username}</p>
           <p>{reply.body}</p>
         </div>
