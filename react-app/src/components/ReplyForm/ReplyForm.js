@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addReply } from "../../store/replies";
 
-
+import './ReplyForm.css';
 
 const NewReply = ({ post }) => {
     const dispatch = useDispatch()
@@ -31,8 +31,8 @@ const NewReply = ({ post }) => {
                     <div key={ind}>{error}</div>
                 ))}
             </div>
-            <div>
-                <input
+            <div className='reply-placeholder'>
+                <input id='reply-placeholder'
                     placeholder='Reply'
                     onChange={(e) => setBody(e.target.value)}
                     value={body}

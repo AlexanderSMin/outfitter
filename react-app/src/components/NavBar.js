@@ -14,13 +14,13 @@ const NavBar = () => {
         {!user && (
           <>
             <li id="logo">OUTFITTER</li>
-            <li id ='blackout'>
-              <NavLink to="/" exact={true} id='nav-button'activeClassName="active">
+            <li id='blackout'>
+              <NavLink to="/" exact={true} id='nav-button' activeClassName="active">
                 Home
               </NavLink>
             </li>
-            <li id= 'blackout'>
-              <NavLink to="/sign-up" exact={true}  id='nav-button' activeClassName="active">
+            <li id='blackout'>
+              <NavLink to="/sign-up" exact={true} id='nav-button' activeClassName="active">
                 Sign Up
               </NavLink>
             </li>
@@ -34,9 +34,13 @@ const NavBar = () => {
                 Users
               </NavLink>
             </li> */}
-
-            <li id ='blackout'>
-              <LogoutButton className='navbar-logout'/>
+            <li id='blackout'>
+              <NavLink to="/" exact={true} id='nav-button' activeClassName="active">
+                Home
+              </NavLink>
+            </li>
+            <li id='blackout'>
+              <LogoutButton className='navbar-logout' />
             </li>
           </>
         )}

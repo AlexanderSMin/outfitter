@@ -17,7 +17,7 @@ const RepliesTimeline = ({ post }) => {
 		<div>
 			{replies.length > 0 &&
 				<>
-					<h3>Replies</h3>
+					<h3 className='replies-title'>Replies:</h3>
 					<ul className='replies-timeline'>
 						{replies.map(reply => {
 							if (reply.post_id === post.id) {

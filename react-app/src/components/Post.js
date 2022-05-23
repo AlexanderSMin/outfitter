@@ -28,7 +28,7 @@ const PostsFeed = () => {
         </div>
         <div className="post-timeline">
           <ul className="timeline-container">
-            {posts.map((post, index) => (
+            {posts.reverse().map((post, index) => (
               <div className="individual-post" key={index}>
                 <div className="caption">{post.caption}</div>
                 <div className="post-username">- @{post.username}</div>

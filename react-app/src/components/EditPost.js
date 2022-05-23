@@ -2,6 +2,8 @@ import { React, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatePost } from "../store/posts";
 
+import './EditPost.css'
+
 const EditPost = ({ post }) => {
   const dispatch = useDispatch();
 
@@ -25,8 +27,8 @@ const EditPost = ({ post }) => {
   }, [post]);
 
   let editForm = (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form onSubmit={handleSubmit} id='edit-form'>
+      <input id='edit-form'
         type="text"
         value={caption}
         onChange={e => setCaption(e.target.value)}
