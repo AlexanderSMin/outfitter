@@ -48,7 +48,7 @@ const ReplyContainer = ({ reply }) => {
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <input
+        <input className="edit-reply"
           type="text"
           value={newReply}
           onChange={(e) => setReply(e.target.value)}
