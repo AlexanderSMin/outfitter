@@ -1,4 +1,8 @@
-# Flask React Project
+# Overview
+Outfitter, is a Twitter clone, but focuses on the sharing of sneakers, streetwear, and anything fashion related. 
+
+https://outfitteralex.herokuapp.com/
+
 
 This is the starter for the Flask React project.
 
