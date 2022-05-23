@@ -22,23 +22,26 @@ const NewOutfitterPost = () => {
         const response = await dispatch(addPost(newPost))
         if (response?.errors) {
             setErrors(response.errors)
-        }else{
+        } else {
             setCaption("")
+            setErrors([''])
         }
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='post-form' onSubmit={handleSubmit}>
             <div>
                 {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
             <div>
-                <input
+                <textarea className='form-textarea'
                     placeholder='New Outfitter Post'
                     onChange={(e) => setCaption(e.target.value)}
                     value={caption}
-                ></input>
+                ></textarea>
+                <button type='submit'>Submit</button>
+
             </div>
             {/* <div>
                     <input
@@ -47,9 +50,9 @@ const NewOutfitterPost = () => {
                         value={photoUrl}
                     ></input>
                 </div> */}
-            <div>
-                <button type='submit'>Submit</button>
-            </div>
+            {/* <div>
+                <button className ='post-button' type='submit'>Submit</button>
+            </div> */}
         </form>
     )
 }

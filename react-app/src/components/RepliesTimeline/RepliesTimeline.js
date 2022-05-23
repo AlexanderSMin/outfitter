@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import ReplyContainer from '../ReplyContainer/ReplyContainer';
 import ReplyForm from '../ReplyForm/ReplyForm';
+import './RepliesTimeline.css'
 
 const RepliesTimeline = ({ post }) => {
 	const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const RepliesTimeline = ({ post }) => {
 			{replies.length > 0 &&
 				<>
 					<h3>Replies</h3>
-					<ul>
+					<ul className='replies-timeline'>
 						{replies.map(reply => {
 							if (reply.post_id === post.id) {
 								return (

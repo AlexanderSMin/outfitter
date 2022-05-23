@@ -1,0 +1,6 @@
+.replies-timeline{
+    list-style: none;
+    overflow: scroll;
+    width: auto;
+    max-height: 200px;
+}

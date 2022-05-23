@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import LoginForm from '../auth/LoginForm';
 import "./SplashPage.css"
+import sneakerhead from '../../pictures/sneakerhead.jpg'
 
 const SplashPage = props => {
   const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const SplashPage = props => {
     <>
       <div className="splash-main">
         <h1 className='splash-title'>Outfitter</h1>
+        <img src={sneakerhead}></img>
         <h2 className='splash-bio'> Fashion/Sneakers/Streetwear </h2>
         <LoginForm  className='splash-login'/>
         <div className='splash-signup'>
