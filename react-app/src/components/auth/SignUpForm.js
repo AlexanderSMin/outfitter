@@ -3,6 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
+
+import './SignUpForm.css';
+import jordanbox from '../../pictures/jordanbox.jpg'
+
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState('');
@@ -58,41 +62,43 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
+      <img src={jordanbox} className='jordanpic'></img>
+      <div className='signup-div'>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>First Name</label>
-        <input
+      <div id='signup-entry'>
+        <label id='signup-entry'>First Name</label>
+        <input id='text-form'
           type='text'
           name='firstname'
           onChange={updateFirstName}
           value={firstName}
         ></input>
       </div>
-      <div>
-        <label>Last Name</label>
-        <input
+      <div id='signup-entry'>
+        <label id='signup-entry'>Last Name</label>
+        <input id='text-form'
           type='text'
           name='lastname'
           onChange={updateLastName}
           value={lastName}
         ></input>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
+      <div id='signup-entry'>
+        <label id='signup-entry'>User Name</label>
+        <input id='text-form'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
-        <input
+      <div id='signup-entry'>
+        <label id='signup-entry'>Email</label>
+        <input id='text-form'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -100,7 +106,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label id='signup-entry'>Password</label>
         <input
           type='password'
           name='password'
@@ -108,8 +114,8 @@ const SignUpForm = () => {
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div id='signup-entry'>
+        <label id='signup-entry'>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
@@ -117,8 +123,9 @@ const SignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
-      </div>
+      </div >
       <button type='submit'>Sign Up</button>
+      </div>
     </form>
   );
 };
