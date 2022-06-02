@@ -22,7 +22,13 @@
     font-family: "Fantasy", copperplate;
     overflow: scroll;
     max-width: 500px;
+    background-color: white;
 }
 .edit-reply{
     font-family: "Fantasy", copperplate;
+    /* background-color: white; */
+}
+
+.userName{
+    background-color: white;
 }

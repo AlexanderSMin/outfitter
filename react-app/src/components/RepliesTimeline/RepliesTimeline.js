@@ -14,7 +14,7 @@ const RepliesTimeline = ({ post }) => {
 	// }, [dispatch])
 
 	return (
-		<div>
+		<div className='reply-div'>
 			{replies.length > 0 &&
 				<>
 					<h3 className='replies-title'>Replies:</h3>

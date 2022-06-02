@@ -1,9 +1,11 @@
 /* TODO Add site wide styles */
-*{
-    /* background-color: rgb(228, 228, 228);
-     */
-     background-color:white;
+body{
+     background-image: url('./pictures/grey.jpg');
+     /* background-repeat: no-repeat; */
+     /* background-size: cover; */
+     /* background: linear-gradient(#e66465, #9198e5); */
 }
+
 
 button{
     background-color: #50b7f5;;
