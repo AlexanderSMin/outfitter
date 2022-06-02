@@ -1,7 +1,9 @@
 #login-form{
     font-family: "Fantasy", copperplate;
+    color: white;
+    font-weight: bold;
 }
 
 .login-button{
-    margin: auto;
+    margin-left: 3px;
 }
