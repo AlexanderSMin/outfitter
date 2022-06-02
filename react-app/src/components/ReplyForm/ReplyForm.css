@@ -1,3 +1,10 @@
 #reply-placeholder{
     font-family: "Fantasy", copperplate;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.reply-submit-button{
+    margin-left: 10px;
+    margin-bottom: 3px;
 }

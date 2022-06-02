@@ -38,7 +38,7 @@ const NewReply = ({ post }) => {
                     value={body}
                 ></input>
             </div>
-            <div>
+            <div className='reply-submit-button'>
                 <button type='submit'>Submit</button>
             </div>
         </form>

@@ -31,19 +31,21 @@
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-family: "Fantasy", copperplate;
-  color: rgb(102, 101, 101);
+  color: #50b7f5;
   font-weight: bold;
+  text-shadow: -1px 1px 0 rgb(83, 82, 82), 1px 1px 0 rgb(83, 82, 82),
+  1px -1px 0 rgb(83, 82, 82), -1px -1px 0 rgb(83, 82, 82);
 }
 
 .splash-signup {
-  border: 1px solid #e6e6e6;
-  background-color: white;
+  /* border: 1px solid #e6e6e6; */
+  background: none;
   padding: 15px 40px;
   margin: 10px auto;
   margin-bottom: 70px;
   font-weight: bold;
   font-family: "Fantasy", copperplate;
-  color: grey;
+  color: white;
 }
 
 .splash-signup-button{
@@ -58,4 +60,10 @@
   cursor: pointer;
   border-radius: 3px;
   font-weight: bold;
+}
+
+.splashpic{
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
 }

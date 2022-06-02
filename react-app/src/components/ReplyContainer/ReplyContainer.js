@@ -65,7 +65,7 @@ const ReplyContainer = ({ reply }) => {
     <>
       <div className='each-reply'>
         <div className='reply'>
-          <p>@{reply.username}</p>
+          <p className='userName'>@{reply.username}</p>
           <p>{reply.body}</p>
         </div>
         {user.id === reply.user_id && (
