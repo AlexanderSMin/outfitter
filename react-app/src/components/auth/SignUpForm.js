@@ -64,7 +64,7 @@ const SignUpForm = () => {
     <form onSubmit={onSignUp}>
       <img src={jordanbox} className='jordanpic'></img>
       <div className='signup-div'>
-      <div>
+      <div id='singup-errors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
