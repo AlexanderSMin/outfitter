@@ -3,6 +3,7 @@ Outfitter, is a Twitter clone, but focuses on the sharing of sneakers, streetwea
 
 https://outfitteralex.herokuapp.com/
 
+![Outiftter Splash](https://user-images.githubusercontent.com/92739573/178652201-72c36fe9-a9f0-46ff-86ef-f105db211f3c.png)
 
 ## Application Breakdown
 **Frontend:**
